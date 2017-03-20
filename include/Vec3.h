@@ -1,3 +1,7 @@
+#ifndef VEC3_H
+#define VEC3_H
+
+#include <iostream>
 template<typename T>
 class Vec3
 {
@@ -17,8 +21,18 @@ class Vec3
 	Vec3<T> operator -(const Vec3<T> &v)const;
 	Vec3<T> operator *(const T &r)const;
 
+	// Helper functions
+	const T& operator [] (uint8_t i) const { return (&x)[i]; } 
+    T& operator [] (uint8_t i) { return (&x)[i]; } 
+	friend std::ostream& operator<< (std::ostream& out,const Vec3<T> &p)
+	{
+		 out<<"( "<<p.x<<","<<p.y<<","<<p.z<<" ) ";
+		 return out;
+	}
+	
 	T x,y,z;
 };
 
 typedef Vec3<float> Vec3f;
 
+#endif

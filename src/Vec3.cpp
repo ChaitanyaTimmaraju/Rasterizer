@@ -50,3 +50,4 @@ Vec3<T> Vec3<T>::cross(const Vec3<T> &v) const
 		z*v.x-x*v.z,
 		x*v.y-y*v.x);
 }
+

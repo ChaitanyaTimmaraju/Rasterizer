@@ -2,14 +2,14 @@ SDIR = src
 IDIR = include
 ODIR = build
 
-CC = g++
+CC = g++ -std=c++11
 
 CFLAGS = -I$(IDIR)
 
-_DEPS = Vec3.h
+_DEPS = Vec3.h Matrix44.h Geometry.h
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
-_OBJ = Vec3.o
+_OBJ = Vec3.o Matrix44.o Driver.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 $(ODIR)/%.o: $(SDIR)/%.cpp $(DEPS)
